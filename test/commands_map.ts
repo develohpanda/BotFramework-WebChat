@@ -40,6 +40,24 @@ var commands_map: CommandValuesMap = {
             return document.querySelector('.wc-message-wrapper:last-child .wc-message.wc-message-from-bot').innerHTML.indexOf('hi') != -1;
         }
     },
+    "options.persistUser=true": {
+        urlAppend: { persistUser: true },        
+        do: function (nightmare) {
+            nightmare
+                .type('.wc-message-groups', 'persisted-user')
+                .click('.wc-send')
+                .wait(2000)
+                .refresh()
+                .wait(2000)
+                .type('.wc-message-groups', 'persisted-user')
+                .click('.wc-send')
+                .wait(2000);
+        },
+        client: function () {
+            var userId = localStorage.getItem('userId');
+            return document.querySelector('.wc-message-wrapper:last-child .wc-message.wc-message-from-bot').innerHTML.indexOf(userId) != -1;
+        }
+    },
     "options.showHeader=false": {
         urlAppend: { "formatOptions": { showHeader: false } },
         client: function () {

@@ -202,10 +202,10 @@ export class Chat extends React.Component<ChatProps, {}> {
                 userId = Guid.create().toString();
                 localStorage.setItem('userId', userId);
             }
-            user = { id: userId };            
+            user = { id: userId, name: this.props.user.name };            
         }
 
-        this.store.dispatch<ChatActions>({ type: 'Start_Connection', user: this.props.user, bot: this.props.bot, botConnection, selectedActivity: this.props.selectedActivity });
+        this.store.dispatch<ChatActions>({ type: 'Start_Connection', user: user, bot: this.props.bot, botConnection, selectedActivity: this.props.selectedActivity });
 
         this.connectionStatusSubscription = botConnection.connectionStatus$.subscribe(connectionStatus => {
             if (this.props.speechOptions && this.props.speechOptions.speechRecognizer) {

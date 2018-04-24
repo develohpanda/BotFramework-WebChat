@@ -19,6 +19,7 @@
     * webSocket = set to 'true' to use WebSocket to receive messages (currently defaults to false)
     * userid, username = id (and optionally name) of bot user
     * botid, botname = id (and optionally name) of bot
+    * persistUser, optional, whether the bot should persist the userid in localstorage
 
   You can run the sample against our MOCK_DL server:
     1. "npm run start"
@@ -94,6 +95,7 @@
       BotChat.App({
         bot: bot,
         botConnection: botConnection,
+        persistUser: params['persistUser'] || false,
         // locale: 'es-es', // override locale to Spanish
         user: user
       }, document.getElementById('BotChatGoesHere'));

@@ -197,6 +197,15 @@ const processCommand = (conversationId: string, req: express.Request, res: expre
                 process.exitCode = 0;
                 process.exit();
                 return;
+            case 'persisted-user':
+                sendActivity(conversationId, {
+                    type: "message",
+                    timestamp: new Date().toUTCString(),
+                    channelId: "webchat",
+                    text: "User: " + JSON.stringify(req.body.from),
+                    from: config.bot
+                });
+                return;
             default:
                 sendActivity(conversationId, {
                     type: "message",

@@ -111,7 +111,8 @@
             user: {
               id: params['userid'] || 'userid',
               name: params['username'] || 'username'
-            }
+            },
+            persistUser: params['persistUser'] || false
           };
         }
 
@@ -153,6 +154,7 @@
                 showUploadButton={ this.state.showUploadButton }
                 speechOptions={ this.state.speechOptions }
                 user={ this.state.user }
+                persistUser={ this.state.persistUser }
               />
             </div>
           );

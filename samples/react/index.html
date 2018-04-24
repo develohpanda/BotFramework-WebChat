@@ -12,6 +12,7 @@
     * webSocket = set to 'true' to use WebSocket to receive messages (currently defaults to false)
     * userid, username = id (and optionally name) of bot user
     * botid, botname = id (and optionally name) of bot
+    * persistUser, optional, whether the bot should persist the userid in localstorage
 -->
 <html>
   <head>
@@ -62,6 +63,7 @@
             id: params.userid || 'userid',
             name: params.username || 'username'
           }}
+          persistUser={params.persistUser || false}
         />,
         document.getElementById('BotChatGoesHere')
       );

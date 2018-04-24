@@ -12,6 +12,7 @@
     * webSocket = set to 'true' to use WebSocket to receive messages (currently defaults to false)
     * userid, username = id (and optionally name) of bot user
     * botid, botname = id (and optionally name) of bot
+    * persistUser, optional, whether the bot should persist the userid in localstorage
 -->
 <html>
   <head>
@@ -99,6 +100,7 @@
         bot: bot,
         locale: params['locale'],
         resize: 'detect',
+        persistUser: params['persistUser'] || false,
         // sendTyping: true,    // defaults to false. set to true to send 'typing' activities to bot (and other users) when user is typing
         user: user,
         // locale: 'es-es', // override locale to Spanish
